@@ -1,0 +1,33 @@
+.navBarStyles {
+  height: 50px;
+  width: 100vw;
+  background: #12b0e8;
+}
+
+ul {
+  margin: 0px;
+  list-style: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+ul > li > a {
+  text-decoration: none;
+  color: #fff;
+}
+
+ul > li {
+  color: #ffffff;
+  list-style: none;
+  text-decoration: none;
+  width: 100px;
+  height: 40px;
+  background-color: #207398;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+}
