@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap");
+
+body {
+  font-family: "Poppins";
+}
+
 .navBarStyles {
   height: 50px;
   width: 100vw;
@@ -75,4 +81,36 @@ table {
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+form {
+  border: solid 5px #207398;
+  border-radius: 20px;
+  width: 500px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form > label {
+  display: block;
+}
+
+form > input {
+  width: 300px;
+  height: 30px;
+}
+
+.deletebutton {
+  background-color: #bf3312;
+  color: #fff;
+  border: none;
+  height: 30px;
+  border-radius: 5px;
 }

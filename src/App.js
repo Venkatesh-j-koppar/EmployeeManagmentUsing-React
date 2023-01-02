@@ -16,12 +16,20 @@ function App() {
     axios.get("http://localhost:4000/employees").then((res) => {
       setEmployeeList(res.data);
     });
-  });
+  }, []);
 
   const AddEmployee = (e, empObj) => {
     e.preventDefault();
     axios.post("http://localhost:4000/employees", empObj).then((res) => {
       setEmployeeList([...employeeList, res.data]);
+    });
+  };
+
+  const DeleteEmployee = (id) => {
+    axios.delete("http://localhost:4000/employees/" + id).then((res) => {
+      axios.get("http://localhost:4000/employees").then((res) => {
+        setEmployeeList(res.data);
+      });
     });
   };
 
@@ -65,7 +73,15 @@ function App() {
             element={<Add AddEmployee={AddEmployee} />}
           ></Route>
           <Route path="/edit" element={<Edit />}></Route>
-          <Route path="/delete" element={<Delete />}></Route>
+          <Route
+            path="/delete"
+            element={
+              <Delete
+                employeeList={employeeList}
+                DeleteEmployee={DeleteEmployee}
+              />
+            }
+          ></Route>
         </Routes>
       </BrowserRouter>
       <Footer></Footer>
