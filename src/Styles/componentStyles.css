@@ -31,3 +31,48 @@ ul > li {
   justify-content: center;
   margin: 0px 5px;
 }
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25vh;
+  font-size: 50px;
+  color: #3944f7;
+}
+
+.footer {
+  width: 100vw;
+  height: 50px;
+  background-color: #12b0e8;
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  bottom: 0px;
+  position: fixed;
+}
+
+p {
+  display: inline;
+}
+
+h1 {
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+  width: 600px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

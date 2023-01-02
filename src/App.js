@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Home from "./Components/Home";
 import View from "./Components/View";
 import Add from "./Components/Add";
@@ -9,6 +9,8 @@ import { BrowserRouter, Link, Routes, Route, Outlet } from "react-router-dom";
 import "./Styles/componentStyles.css";
 
 function App() {
+  const [employeeList, setEmployeeList] = useState([]);
+
   return (
     <div>
       <BrowserRouter>
@@ -35,7 +37,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
 
-          <Route path="/view" element={<View />}></Route>
+          <Route
+            path="/view"
+            element={
+              <View
+                employeeList={employeeList}
+                setEmployeeList={setEmployeeList}
+              />
+            }
+          ></Route>
           <Route path="/add" element={<Add />}></Route>
           <Route path="/edit" element={<Edit />}></Route>
           <Route path="/delete" element={<Delete />}></Route>

@@ -3,7 +3,12 @@ import React from "react";
 function Add() {
   return (
     <div>
-      <h1>Inside Add Components</h1>
+      <form>
+        <label htmlFor="name">Enter Employee Name</label>
+        <input type="text" id="name" placeholder="Name"></input>
+        <label htmlFor="designation">Enter Employee Designation</label>
+        <input type="text" id="designation" placeholder="Designation"></input>
+      </form>
     </div>
   );
 }
