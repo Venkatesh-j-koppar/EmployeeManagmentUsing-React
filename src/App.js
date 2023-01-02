@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Home from "./Components/Home";
 import View from "./Components/View";
 import Add from "./Components/Add";
@@ -7,9 +7,23 @@ import Delete from "./Components/Delete";
 import Footer from "./Components/Footer";
 import { BrowserRouter, Link, Routes, Route, Outlet } from "react-router-dom";
 import "./Styles/componentStyles.css";
+import axios from "axios";
 
 function App() {
   const [employeeList, setEmployeeList] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/employees").then((res) => {
+      setEmployeeList(res.data);
+    });
+  });
+
+  const AddEmployee = (e, empObj) => {
+    e.preventDefault();
+    axios.post("http://localhost:4000/employees", empObj).then((res) => {
+      setEmployeeList([...employeeList, res.data]);
+    });
+  };
 
   return (
     <div>
@@ -46,7 +60,10 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/add" element={<Add />}></Route>
+          <Route
+            path="/add"
+            element={<Add AddEmployee={AddEmployee} />}
+          ></Route>
           <Route path="/edit" element={<Edit />}></Route>
           <Route path="/delete" element={<Delete />}></Route>
         </Routes>
