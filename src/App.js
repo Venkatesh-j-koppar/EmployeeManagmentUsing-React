@@ -25,6 +25,19 @@ function App() {
     });
   };
 
+  const EditEmployee = (e, employeetobeupdated) => {
+    e.preventDefault();
+    console.log(employeetobeupdated);
+
+    // employeeList.findIndex((employee) => {
+    //   return employee.id == employeetobeupdated.id;
+    // });
+    // const temp = [...employeeList];
+    // temp[index] = employeetobeupdated;
+    // setEmployeeList(temp);
+    // console.log(employeeList);
+  };
+
   const DeleteEmployee = (id) => {
     axios.delete("http://localhost:4000/employees/" + id).then((res) => {
       axios.get("http://localhost:4000/employees").then((res) => {
@@ -72,7 +85,12 @@ function App() {
             path="/add"
             element={<Add AddEmployee={AddEmployee} />}
           ></Route>
-          <Route path="/edit" element={<Edit />}></Route>
+          <Route
+            path="/edit"
+            element={
+              <Edit employeeList={employeeList} EditEmployee={EditEmployee} />
+            }
+          ></Route>
           <Route
             path="/delete"
             element={
