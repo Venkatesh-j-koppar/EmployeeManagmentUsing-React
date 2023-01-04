@@ -28,14 +28,25 @@ function App() {
   const EditEmployee = (e, employeetobeupdated) => {
     e.preventDefault();
     console.log(employeetobeupdated);
+    axios
+      .put(
+        "http://localhost:4000/employees/" + employeetobeupdated.id,
+        employeetobeupdated
+      )
+      .then(() => {
+        let index = employeeList.findIndex((employee) => {
+          return employee.id == employeetobeupdated.id;
+        });
 
-    // employeeList.findIndex((employee) => {
-    //   return employee.id == employeetobeupdated.id;
-    // });
-    // const temp = [...employeeList];
-    // temp[index] = employeetobeupdated;
-    // setEmployeeList(temp);
-    // console.log(employeeList);
+        const temp = [...employeeList];
+        temp[index] = employeetobeupdated;
+        setEmployeeList(temp);
+      })
+      .catch(() => {
+        console.log("Something went wrong");
+      });
+
+    console.log(employeeList);
   };
 
   const DeleteEmployee = (id) => {
